@@ -1,0 +1,40 @@
+.navContainer h1 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-size: 4rem;
+}
+
+.navContainer ul {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navContainer li {
+  font-weight: 600;
+  transition: 500ms;
+}
+
+.navContainer li:hover {
+  transform: scale(1.15);
+  transition: 500ms;
+}
+
+li a:global(.active) {
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 7px rgb(255, 255, 252);
+}
+
+@media screen and (max-width: 600px) {
+  .navContainer h1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 30px;
+  }
+  .navContainer ul {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,35 @@
+.selectContainer option,
+select,
+button {
+  background-color: black;
+}
+
+.selectContainer select,
+button {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+}
+
+select::-webkit-scrollbar {
+  background-color: black;
+  color: white;
+}
+select::-webkit-scrollbar-thumb {
+  background-color: #feffff;
+  border: 1px solid rgb(193, 193, 193);
+}
+
+.selectContainer button {
+  cursor: pointer;
+}
+
+.selectContainer select:hover,
+button:hover {
+  transform: scale(1.05);
+}

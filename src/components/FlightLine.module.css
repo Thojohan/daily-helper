@@ -1,0 +1,16 @@
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.shortSpan {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.longSpan {
+  flex: 2.5;
+}
