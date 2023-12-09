@@ -1,7 +1,17 @@
 import styles from "./LineChart.module.css";
+import Chart from "chart.js/auto";
 import { Line } from "react-chartjs-2";
 
-function LineChart({ chartData, heading, unit }) {
+import { CategoryScale, Filler } from "chart.js";
+
+Chart.register(CategoryScale);
+Chart.register(Filler);
+
+function LineChart({ time, heading, unit, datasets }) {
+  const chartData = {
+    labels: time,
+    datasets: datasets,
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.chartContainer}>
@@ -54,7 +64,7 @@ function LineChart({ chartData, heading, unit }) {
                 beginAtZero: true,
                 display: "auto",
                 min: 0,
-                suggestedMax: 5,
+                suggestedMax: 3,
                 ticks: {
                   color: "white",
                   font: {

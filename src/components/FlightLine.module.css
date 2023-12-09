@@ -3,14 +3,29 @@
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  margin-left: 5px;
+  min-width: 500px;
+  font-size: 0.8rem;
 }
 
-.shortSpan {
-  flex: 1;
-  margin-right: 8px;
+p {
+  margin: 2px;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
 }
 
-.longSpan {
-  flex: 2.5;
+span {
+  font-family: inherit;
+}
+
+.short {
+  width: 10%;
+}
+
+.long {
+  width: 30%;
+}
+
+li {
+  font-family: "Roboto", sans-serif;
 }

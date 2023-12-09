@@ -1,3 +1,7 @@
+.navContainer {
+  color: white;
+}
+
 .navContainer h1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -16,11 +20,24 @@
 .navContainer li {
   font-weight: 600;
   transition: 500ms;
+  color: inherit;
 }
 
 .navContainer li:hover {
   transform: scale(1.15);
   transition: 500ms;
+}
+
+.position {
+  font-size: "17px";
+}
+
+li a:global {
+  color: white;
+}
+
+h1 a:global {
+  color: white;
 }
 
 li a:global(.active) {

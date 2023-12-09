@@ -1,7 +1,7 @@
 .pageContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url("./src/assets/phone.jpg");
+  background-image: url("/src/assets/phone.jpg");
   background-size: cover;
   resize: both;
   overflow: scroll;

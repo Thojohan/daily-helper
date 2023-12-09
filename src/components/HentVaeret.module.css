@@ -1,0 +1,4 @@
+.weatherWrapper {
+  display: flex;
+  flex-direction: column;
+}

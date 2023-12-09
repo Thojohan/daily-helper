@@ -1,0 +1,4 @@
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+}

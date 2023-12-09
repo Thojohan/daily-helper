@@ -1,5 +1,5 @@
 export function findWindDirection(degree, knots) {
-  if (knots === 0) return "";
+  if (knots < 1) return "";
   if (degree > 337.5 || degree <= 22.5) return `Nordlig`;
   if (degree > 22.5 || degree <= 67.5) return `Nordøstlig`;
   if (degree > 67.5 || degree <= 112.5) return `Østlig`;

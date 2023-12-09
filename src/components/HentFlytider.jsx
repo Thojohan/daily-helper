@@ -3,77 +3,15 @@ import styles from "./HentFlytider.module.css";
 import Selector from "./Selector";
 import { useState } from "react";
 
-const flyplasser = [
-  ["AES", "Ålesund"],
-  ["ALF", "Alta"],
-  ["ANX", "Andenes"],
-  ["BDU", "Bardufoss"],
-  ["BGO", "Bergen"],
-  ["BJF", "Båtsfjord"],
-  ["BNN", "Brønnøysund"],
-  ["BOO", "Bodø"],
-  ["BVG", "Berlevåg"],
-  ["DLD", "Dagali"],
-  ["EVE", "Harstad/Narvik"],
-  ["FAN", "Farsund"],
-  ["FDE", "Førde"],
-  ["FRO", "Florø"],
-  ["GLL", "Gol"],
-  ["HAA", "Hasvik"],
-  ["HAU", "Haugesund"],
-  ["HFT", "Hammerfest"],
-  ["HMR", "Hamar"],
-  ["HOV", "Ørsta/Volda"],
-  ["HVG", "Honningsvåg"],
-  ["KKN", "Kirkenes"],
-  ["KRS", "Kristiansand S"],
-  ["KSU", "Kristiansund N"],
-  ["LKL", "Lakselv"],
-  ["LKN", "Leknes"],
-  ["LYR", "Longyearbyen"],
-  ["MEH", "Mehamn"],
-  ["MJF", "Mosjøen"],
-  ["MOL", "Molde"],
-  ["MQN", "Mo i Rana"],
-  ["NTB", "Notodden"],
-  ["NVK", "Narvik"],
-  ["OLA", "Ørland"],
-  ["OSL", "Oslo"],
-  ["OSY", "Namsos"],
-  ["QKX", "Kautokeino"],
-  ["RET", "Røst"],
-  ["RRS", "Røros"],
-  ["RVK", "Rørvik"],
-  ["RYG", "Rygge"],
-  ["SDN", "Sandane"],
-  ["SKE", "Skien"],
-  ["SKN", "Stokmarknes"],
-  ["SOG", "Sogndal"],
-  ["SOJ", "Sørkjosen"],
-  ["SRP", "Stord"],
-  ["SSJ", "Sandnessjøen"],
-  ["SVG", "Stavanger"],
-  ["SVJ", "Svolvær"],
-  ["TOS", "Tromsø"],
-  ["TRD", "Trondheim"],
-  ["TRF", "Sandefjord"],
-  ["VAW", "Vardø"],
-  ["VDB", "Fagernes"],
-  ["VDS", "Vadsø"],
-  ["VRY", "Værøy"],
-];
-
 const dir = [
   ["Alle flyvninger", ""],
   ["Ankomst", "&direction=A"],
   ["Avganger", "&direction=D"],
 ];
 
-function HentFlytider({ setFlightData, setIsLoading, setError }) {
+function HentFlytider({ setFlightData, setIsLoading, setError, flyplasser }) {
   const [airport, setAirport] = useState("");
   const [direction, setDirection] = useState(["Alle flyvninger", ""]);
-
-  console.log(airport, direction);
 
   function callback() {
     if (!airport) return;

@@ -12,63 +12,85 @@ const weatherCodes = [
   {
     weatherCode: [3],
     picture: "cloud.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [45, 48],
     picture: "fog.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [51, 53, 55, 56],
     picture: "drizzle.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [56, 57],
     picture: "freezing-drizzle.svg",
+    pictureNight: null,
   },
 
-  { weatherCode: [57, 66, 67], picture: "freezing-rain.svg" },
+  {
+    weatherCode: [57, 66, 67],
+    picture: "freezing-rain.svg",
+    pictureNight: null,
+  },
   {
     weatherCode: [61, 80],
     picture: "light-rain.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [63, 81],
     picture: "medium-rain.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [65, 82],
     picture: "heavy-rain.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [71, 85],
     picture: "light-snow.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [73],
     picture: "medium-snow.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [75, 86],
     picture: "heavy-snow.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [77],
     picture: "grain.svg",
+    pictureNight: null,
   },
   {
     weatherCode: [95],
     picture: "thunderstorm.svg",
+    pictureNight: null,
   },
-  { weatherCode: [96, 99], picture: "snow-storm.svg" },
+  { weatherCode: [96, 99], picture: "snow-storm.svg", pictureNight: null },
 ];
 
 function findCode(code, isDay) {
-  const [picName] = weatherCodes.filter(
-    (el) => el.weatherCode.filter((el) => el === +code) && el
+  const [weatherElement] = weatherCodes.filter((el) =>
+    el.weatherCode.some((e) => e === code)
   );
 
-  return `./src/assets/weather/${
-    !isDay && picName.pictureNight ? picName.pictureNight : picName.picture
+  console.log(code, isDay);
+  console.log(weatherElement);
+  if (!weatherElement) return;
+
+  return `./${
+    isDay === 1 || !weatherElement?.pictureNight
+      ? weatherElement.picture
+      : weatherElement.pictureNight
   }`;
 }
 
@@ -102,22 +124,35 @@ function findCode(code, isDay) {
 // }
 
 function WeatherNow({ weather }) {
+  const time = new Date(weather.time);
+
+  const timeString = time.toLocaleDateString();
+  const current = `${String(time.getHours()).padStart(2, "0")}:${String(
+    time.getMinutes()
+  ).padStart(2, "0")}`;
+
+  console.log(weather.is_day, weather.weather_code);
+
   console.log(weather);
   return (
     <p className={styles.tempStatus}>
-      <span>Temperatur {weather.current.temperature_2m}℃</span>
-      <span>Føles som {weather.current.apparent_temperature}℃</span>
-      <span>Skydekke {weather.current.cloud_cover}%</span>
+      <span>
+        {timeString}
+        <br></br> Kl {current}
+      </span>
+      <span>Temperatur {weather.temperature_2m}℃</span>
+      <span>Føles som {weather.apparent_temperature}℃</span>
+      <span>Skydekke {weather.cloud_cover}%</span>
       <span>
         {`${findWindDirection(
-          weather.current.wind_direction_10m,
-          weather.current.wind_speed_10m
-        )} ${findBeaufort(weather.current.wind_speed_10m)}`}
+          weather.wind_direction_10m,
+          weather.wind_speed_10m
+        )} ${findBeaufort(weather.wind_speed_10m)}`}
       </span>
-      <span>{weather.current.precipitation}mm nedbør denne timen</span>
+      <span>{weather.precipitation}mm nedbør denne timen</span>
       <img
         className={styles.icon}
-        src={findCode(weather.current.weather_code, weather.current.is_day)}
+        src={findCode(weather.weather_code, weather.is_day)}
       />
     </p>
   );

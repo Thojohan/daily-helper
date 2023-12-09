@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./Selector.module.css";
 
-function Selector({ updateSelection, options }) {
-  const [selectedOption, setSelectedOption] = useState(0);
-
+function Selector({ updateSelection, options, reducerType = null, index = 0 }) {
+  const [selectedOption, setSelectedOption] = useState(index);
   function update(index) {
-    console.log(index);
     setSelectedOption(index);
-    updateSelection(options[index]);
+    reducerType
+      ? updateSelection({ type: reducerType, payload: options[index] })
+      : updateSelection(options[index]);
   }
 
   return (

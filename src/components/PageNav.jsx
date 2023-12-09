@@ -1,30 +1,41 @@
+import { useContext } from "react";
 import styles from "./PageNav.module.css";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
 
+import { StateContext } from "../App";
 function PageNav() {
-  const [{ latitude, longitude }, setPosition] = useState({});
+  const [state, dispatch] = useContext(StateContext);
+  const { position, location, mapStyle } = state;
 
-  useEffect(function () {
-    navigator.geolocation.getCurrentPosition(
-      (object) => setPosition(object.coords),
-      setPosition("Error")
-    );
-  }, []);
+  console.log(state);
+
   return (
     <nav className={styles.navContainer}>
       <h1>
         <NavLink to="/">&#9886; Forbrukerguide &#9887;</NavLink>
       </h1>
+
       <ul>
         <li>
-          <NavLink to="/matpriser">Matpriser</NavLink>
+          <NavLink
+            to={`/matpriser?lat=${position.latitude}&lng=${
+              position.longitude
+            }&map=${mapStyle.at(0)}&mapAt=${mapStyle
+              .at(1)
+              .attribution.replaceAll("&copy", "$$$$$")}&mapUrl=${
+              mapStyle.at(1).url
+            }`}
+          >
+            Matpriser
+          </NavLink>
         </li>
         <li>
           <NavLink to="/stroempriser">Strømpriser</NavLink>
         </li>
         <li>
-          <NavLink to={`/vaeret?lat=${latitude}&lng=${longitude}`}>
+          <NavLink
+            to={`/vaeret?lat=${position.latitude}&lng=${position.longitude}&loc=${location?.city}`}
+          >
             Været
           </NavLink>
         </li>

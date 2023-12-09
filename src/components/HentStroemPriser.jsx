@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import Selector from "./Selector.jsx";
 import styles from "./HentStroemPriser.module.css";
-import ChartConstructor from "./ChartConstructor.jsx";
+import LineChart from "./LineChart.jsx";
 import Loading from "./Loading.jsx";
+import ErrorMessage from "./ErrorMessage.jsx";
 
 const timeNow = new Date();
 const year = timeNow.getFullYear();
@@ -73,9 +74,9 @@ function HentStroemPriser() {
       <Selector updateSelection={setArea} options={geoAreas} />
 
       {isLoading && <Loading />}
-      {error && <Error error={error} />}
+      {error && <ErrorMessage error={error} />}
       {!isLoading && !error && priser.length > 0 && (
-        <ChartConstructor
+        <LineChart
           time={time}
           unit={unit}
           heading={heading}

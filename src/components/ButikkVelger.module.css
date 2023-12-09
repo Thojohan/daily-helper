@@ -1,0 +1,22 @@
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  justify-content: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+input {
+  align-self: center;
+  width: 50%;
+}
+
+dataList {
+  align-self: center;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+  width: 50%;
+}

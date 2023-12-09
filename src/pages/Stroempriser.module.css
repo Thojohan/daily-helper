@@ -1,8 +1,9 @@
 .pageContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url("./src/assets/stroempriser.jpg");
+  background-image: url("/src/assets/stroempriser.jpg");
   background-size: cover;
   resize: both;
   overflow: scroll;
+  color: white;
 }

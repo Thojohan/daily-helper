@@ -1,34 +1,40 @@
 .pageContainer {
   width: 100vw;
   height: 100vh;
-  background-image: url("./src/assets/pexels-pixabay-47044.jpg");
+  background-image: url("/src/assets/pexels-pixabay-47044.jpg");
   background-size: cover;
-  resize: both;
   overflow: scroll;
+  min-width: 350px;
+  min-height: 700px;
+  color: white;
 }
 
 .sectionContainer {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 100vw;
 }
 
 .resultContainer {
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
-  max-width: calc(100vw - 380px);
+
+  width: calc(100vw - 450px);
 }
 
 @media screen and (max-width: 600px) {
   .sectionContainer {
     flex-direction: column;
     font-size: 1em;
+    min-width: 350px;
     width: 100%;
   }
   .resultContainer {
     display: flex;
     flex-direction: column;
-    min-width: 95vw;
-    max-width: 100vw;
+    min-width: 350px;
+    max-width: 980vw;
+    margin-top: 20px;
   }
 }
