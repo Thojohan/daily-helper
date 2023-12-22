@@ -1,7 +1,9 @@
 import XMLParser from "react-xml-parser";
 import styles from "./HentFlytider.module.css";
-import Selector from "./Selector";
+import Selector from "../Selector";
 import { useState } from "react";
+import MenuSelector from "../MenuSelector";
+import Pulldown from "../Pulldown";
 
 const dir = [
   ["Alle flyvninger", ""],
@@ -38,23 +40,17 @@ function HentFlytider({ setFlightData, setIsLoading, setError, flyplasser }) {
   }
   // flydata();
   return (
-    <>
-      <div className={styles.selectContainer}>
-        <select
-          onChange={(e) => setAirport(e.target.value)}
-          placeholder="Velg flyplass"
-        >
-          <option value="">Velg flyplass</option>
-          {flyplasser.map(([kode, navn]) => (
-            <option key={kode} value={kode}>
-              {kode} - {navn}
-            </option>
-          ))}
-        </select>
-        <Selector updateSelection={setDirection} options={dir} />
-        <button onClick={callback}>Søk flyvninger</button>
-      </div>
-    </>
+    <div>
+      <Pulldown
+        array={flyplasser}
+        setter={setAirport}
+        placeholder="Velg flyplass"
+      />
+      <Selector updateSelection={setDirection} options={dir} />
+      <button className={styles.pullDownButton} onClick={callback}>
+        Søk flyvninger
+      </button>
+    </div>
   );
 }
 

@@ -1,6 +1,6 @@
 import styles from "./Vaeret.module.css";
 import PageNav from "../components/PageNav";
-import HentVaeret from "../components/HentVaeret";
+import HentVaeret from "../components/Været/HentVaeret";
 import { useSearchParams } from "react-router-dom";
 
 function Vaeret() {

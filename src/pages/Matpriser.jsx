@@ -1,11 +1,11 @@
 import styles from "./Matpriser.module.css";
-import HentMatPriser from "../components/HentMatPriser";
-import ButikkVelger from "../components/ButikkVelger";
+import HentMatPriser from "../components/Matpriser/HentMatPriser";
+import ButikkVelger from "../components/Matpriser/ButikkVelger";
 import PageNav from "../components/PageNav";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import ShopMap from "../components/ShopMap";
-import Prices from "../components/Prices";
+import Map from "../components/Map";
+import Prices from "../components/Matpriser/Prices";
 
 var days = [
   "sunday",
@@ -58,7 +58,7 @@ function Matpriser({ mapStyle }) {
         ...matPriser.data.reduce((acc, el) => {
           return [
             ...acc,
-            home,
+            // home,
             {
               iconUrl: el.logo,
               position: [el.position.lat, el.position.lng],
@@ -72,6 +72,7 @@ function Matpriser({ mapStyle }) {
             },
           ];
         }, []),
+        home,
       ]);
     },
     [matPriser, rangeValue]
@@ -96,7 +97,7 @@ function Matpriser({ mapStyle }) {
           />
         </div>
         <div className={styles.mapContainer}>
-          <ShopMap
+          <Map
             myMarkers={myMarkers}
             lat={latitude}
             lng={longitude}

@@ -2,12 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useEffect, useReducer } from "react";
 import Home from "./pages/Home";
 import Matpriser from "./pages/Matpriser";
-import Nummersoek from "./pages/Nummersoek";
+import Okonomi from "./pages/Okonomi";
 import Stroempriser from "./pages/Stroempriser";
 import Vaeret from "./pages/Vaeret";
 import Flytider from "./pages/Flytider";
 import PageNotFound from "./pages/PageNotFound";
 import { mapOptions } from "./utility/mapOptions";
+import HelpModal from "./pages/HelpModal";
+import Reiseplanlegger from "./pages/Reiseplanlegger";
 
 const options = {
   enableHighAccuracy: true,
@@ -20,6 +22,8 @@ const initialState = {
   position: {},
   location: null,
   mapStyle: mapOpt[0],
+  showModal: false,
+  modalPath: "/",
 };
 
 function reducer(state, { type, payload }) {
@@ -34,10 +38,25 @@ function reducer(state, { type, payload }) {
         ...state,
         position: payload,
       };
+    case "setDefaultPosition":
+      return {
+        ...state,
+        position: {
+          latitude: 59.90850878072872,
+          longitude: 10.744399996474385,
+          accuracy: 0,
+        },
+      };
     case "changeLocation":
       return {
         ...state,
         location: payload,
+      };
+    case "switchModal":
+      return {
+        ...state,
+        showModal: !state.showModal,
+        modalPath: payload,
       };
     default: {
       throw new Error("Unknown action");
@@ -62,13 +81,24 @@ function App() {
   const { latitude, longitude } = state.position;
   const { location, mapStyle } = state;
 
+  function handleNoPosition() {
+    alert(
+      "Kunne ikke finne din posisjon. Setter til Oslo, Norge. Du kan endre denne ved å velge ny posisjon på kartet"
+    );
+    dispatch({ type: "setDefaultPosition" });
+  }
+
+  console.log(state.showModal, state.modalPath);
+
   useEffect(function () {
     const nav = navigator.geolocation.getCurrentPosition(
       (object) => dispatch({ type: "changePosition", payload: object.coords }),
-      dispatch({ type: "changePosition", payload: "Error" }),
+      handleNoPosition,
       options
     );
   }, []);
+
+  console.log(state.position);
 
   useEffect(
     function () {
@@ -90,7 +120,11 @@ function App() {
 
   return (
     <div>
-      {" "}
+      {state.showModal ? (
+        <HelpModal defaultText={state.modalPath} dispatch={dispatch} />
+      ) : (
+        ""
+      )}
       <StateContext.Provider value={[state, dispatch]}>
         <BrowserRouter basename="/daily-helper/">
           <Routes>
@@ -105,7 +139,8 @@ function App() {
                 />
               }
             />
-            <Route path="/nummersoek" element={<Nummersoek />} />
+            <Route path="/okonomi" element={<Okonomi />} />
+            <Route path="/reiseplanlegger" element={<Reiseplanlegger />} />
             <Route path="/stroempriser" element={<Stroempriser />} />
             <Route
               path={`/vaeret`}

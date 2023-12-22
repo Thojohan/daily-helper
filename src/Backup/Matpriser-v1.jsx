@@ -9,7 +9,7 @@ import {
 // import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router-dom";
 import styles from "./Matpriser.module.css";
-import HentMatPriser from "../components/HentMatPriser";
+import HentMatPriser from "../components/Matpriser/HentMatPriser";
 import PageNav from "../components/PageNav";
 import { useState } from "react";
 

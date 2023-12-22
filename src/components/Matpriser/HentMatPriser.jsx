@@ -1,7 +1,7 @@
 // API-nøkkel for kassal.app
 import { useEffect, useState } from "react";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
+import Loading from "../Loading";
+import ErrorMessage from "../ErrorMessage";
 
 const key = "4HlFoWeBFqsWPoEId3gdP0ke9lwj3XndHk4n7WHr";
 
@@ -77,8 +77,13 @@ function HentMatPriser({
               style={{
                 color: `${
                   selectedShops.find((el) => el === butikk.group)
-                    ? "darkblue"
+                    ? "rgb(255, 255, 200)"
                     : "black"
+                }`,
+                backgroundColor: `${
+                  selectedShops.find((el) => el === butikk.group)
+                    ? "rgb(5, 5, 5, 0.3)"
+                    : "inherit"
                 }`,
                 cursor: "pointer",
               }}

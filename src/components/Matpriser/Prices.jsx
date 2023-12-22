@@ -5,9 +5,9 @@ import Results from "./Results";
 
 function Prices({ selectedShops }) {
   const [searchRes, setSearchRes] = useState([]);
-  const [tickedShops, setTickedShops] = useState(true);
-  console.log(tickedShops);
-  console.log(searchRes);
+  const [tickedShops, setTickedShops] = useState(false);
+  const [sortBy, setSortBy] = useState("");
+
   return (
     <div className={styles.priceContainer}>
       <PriceQueryBar
@@ -15,12 +15,15 @@ function Prices({ selectedShops }) {
         selectedShops={selectedShops}
         tickedShops={tickedShops}
         setTickedShops={setTickedShops}
+        setSortBy={setSortBy}
+        sortBy={sortBy}
       />
       {searchRes.data?.length > 0 && (
         <Results
           searchRes={searchRes}
           selectedShops={selectedShops}
           tickedShops={tickedShops}
+          sortBy={sortBy}
         />
       )}
     </div>

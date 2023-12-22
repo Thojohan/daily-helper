@@ -1,6 +1,6 @@
 import styles from "./WeatherNow.module.css";
-import { findBeaufort } from "../utility/findBeufort";
-import { findWindDirection } from "../utility/findWindDirection";
+import { findBeaufort } from "../../utility/findBeufort";
+import { findWindDirection } from "../../utility/findWindDirection";
 
 const weatherCodes = [
   { weatherCode: [0], picture: "sun.svg", pictureNight: "moon.svg" },

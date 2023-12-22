@@ -1,0 +1,27 @@
+.contentContainer {
+  padding-left: 2.5%;
+  padding-top: 2%;
+  min-height: 100%;
+  width: 97.5%;
+  background-color: rgba(94, 93, 93, 0.5);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.valutaContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contentContainer h2 {
+  width: 100%;
+  font-size: 40px;
+  height: 50px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+.chart {
+  width: 280px;
+}

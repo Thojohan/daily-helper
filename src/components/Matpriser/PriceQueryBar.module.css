@@ -1,0 +1,59 @@
+.queryBarContainer {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+
+  border: 3px;
+  border-style: solid;
+  color: white;
+  background-color: rgba(100, 99, 99, 0.6);
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+  width: calc(100%-10px);
+  flex-wrap: wrap;
+}
+
+.inputContainer {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 8px;
+}
+
+.submitButton {
+  align-self: center;
+  width: 80px;
+  height: 25px;
+  border-style: solid;
+  background-color: white;
+  color: black;
+  border-radius: 20%;
+}
+
+.queryBarContainer select {
+  height: 25px;
+  align-self: center;
+}
+
+.queryBarContainer input {
+  margin-right: 10px;
+}
+
+.queryBarContainer label {
+  display: block;
+}
+
+.bigInput {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  min-width: 170px;
+}
+.smallInput {
+  align-items: center;
+  height: 100%;
+  min-width: 80px;
+  width: 90%;
+  margin-right: 8px;
+}

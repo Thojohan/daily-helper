@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import PageNav from "../components/PageNav";
-import ShopMap from "../components/ShopMap";
+import ShopMap from "../components/Map";
 import Selector from "../components/Selector";
 
 const mapOptions = [

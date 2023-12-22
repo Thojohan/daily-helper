@@ -1,5 +1,5 @@
 import FlightLine from "./FlightLine";
-import { getTime } from "../utility/getTime";
+import { getTime } from "../../utility/getTime";
 
 function ShowFlights({ flightData, flyplasser, allAirports }) {
   const lastUpdated = flightData.children[0].attributes.lastUpdate;

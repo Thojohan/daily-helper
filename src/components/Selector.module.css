@@ -1,15 +1,20 @@
-p {
+.selectorContainer p {
   font-size: 1em;
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
-span {
+.selectorContainer span {
   width: 200px;
 }
 
-select,
+.selectorContainer select,
 button {
   color: white;
+}
+
+.selectorContainer label {
+  display: flex;
 }
 
 input[type="checkbox"] {
@@ -43,8 +48,4 @@ input[type="checkbox"]::before {
 
 input[type="checkbox"]:checked::before {
   transform: scale(1);
-}
-
-label {
-  display: flex;
 }

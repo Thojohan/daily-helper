@@ -7,15 +7,22 @@ import { CategoryScale, Filler } from "chart.js";
 Chart.register(CategoryScale);
 Chart.register(Filler);
 
-function LineChart({ time, heading, unit, datasets }) {
+function LineChart({
+  time,
+  heading = false,
+  unit,
+  datasets,
+  heigth = "65vh",
+  label = true,
+}) {
   const chartData = {
     labels: time,
     datasets: datasets,
   };
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} style={{ height: `${heigth}` }}>
       <div className={styles.chartContainer}>
-        <h2 style={{ textAlign: "center" }}>{heading}</h2>
+        {heading ? <h2 style={{ textAlign: "center" }}>{heading}</h2> : ""}
         <Line
           className={styles.graph}
           data={chartData}
@@ -30,7 +37,7 @@ function LineChart({ time, heading, unit, datasets }) {
 
             plugins: {
               legend: {
-                display: true,
+                display: label,
 
                 labels: {
                   color: "white",

@@ -1,5 +1,5 @@
 import styles from "./FlightLine.module.css";
-import { getTime } from "../utility/getTime";
+import { getTime } from "../../utility/getTime";
 function statusCode(code) {
   if (code === "A") return "Landet";
   if (code === "C") return "Innstilt";

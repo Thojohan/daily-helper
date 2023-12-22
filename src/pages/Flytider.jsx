@@ -1,8 +1,8 @@
 import XMLParser from "react-xml-parser";
 import styles from "./Flytider.module.css";
 import PageNav from "../components/PageNav";
-import HentFlytider from "../components/HentFlytider";
-import ShowFlights from "../components/ShowFlights";
+import HentFlytider from "../components/Flytider/HentFlytider";
+import ShowFlights from "../components/Flytider/ShowFlights";
 import Loading from "../components/Loading";
 import { useState, useEffect } from "react";
 import ErrorMessage from "../components/ErrorMessage";

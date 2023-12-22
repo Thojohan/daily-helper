@@ -1,0 +1,13 @@
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/godebusser.jpg");
+  background-size: cover;
+  resize: both;
+  overflow: scroll;
+}
+
+.pageContainer p {
+  color: white;
+  font-size: 25px;
+}

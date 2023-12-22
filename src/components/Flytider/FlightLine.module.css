@@ -7,14 +7,14 @@
   font-size: 0.8rem;
 }
 
-p {
+.line p {
   margin: 2px;
   padding: 0;
   text-align: left;
   font-family: inherit;
 }
 
-span {
+.line span {
   font-family: inherit;
 }
 
@@ -26,6 +26,6 @@ span {
   width: 30%;
 }
 
-li {
+.line li {
   font-family: "Roboto", sans-serif;
 }

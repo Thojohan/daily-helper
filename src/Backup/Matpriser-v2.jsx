@@ -10,8 +10,8 @@ import {
 // import "leaflet/dist/leaflet.css";
 import { useSearchParams } from "react-router-dom";
 import styles from "./Matpriser.module.css";
-import HentMatPriser from "../components/HentMatPriser";
-import ButikkVelger from "../components/ButikkVelger";
+import HentMatPriser from "../components/Matpriser/HentMatPriser";
+import ButikkVelger from "../components/Matpriser/ButikkVelger";
 import PageNav from "../components/PageNav";
 import { useEffect, useState } from "react";
 import { Icon } from "leaflet";

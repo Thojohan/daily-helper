@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "./HentVaeret.module.css";
-import LineChart from "./LineChart";
+import LineChart from "../LineChart";
 import WeatherNow from "./WeatherNow";
-import Loading from "./Loading";
-import ErrorMessage from "./ErrorMessage";
+import Loading from "../Loading";
+import ErrorMessage from "../ErrorMessage";
 
 const unit = "°C";
 const label = "Temperatur";

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Selector from "./Selector.jsx";
+import Selector from "../Selector.jsx";
 import styles from "./HentStroemPriser.module.css";
-import LineChart from "./LineChart.jsx";
-import Loading from "./Loading.jsx";
-import ErrorMessage from "./ErrorMessage.jsx";
+import LineChart from "../LineChart.jsx";
+import Loading from "../Loading.jsx";
+import ErrorMessage from "../ErrorMessage.jsx";
 
 const timeNow = new Date();
 const year = timeNow.getFullYear();
@@ -25,6 +25,8 @@ function HentStroemPriser() {
   const [priser, setPriser] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  console.log(priser);
 
   const time = priser.map((pris) => {
     const time = new Date(pris.time_start);

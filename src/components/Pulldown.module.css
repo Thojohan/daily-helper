@@ -1,0 +1,30 @@
+.pulldownContainer option,
+select,
+button {
+  background-color: black;
+  color: white;
+  font-size: 17px;
+}
+
+.pulldownContainer select,
+.pulldownContainer label {
+  margin-left: 20px;
+  width: 300px;
+  height: 35px;
+  text-align: center;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  align-items: center;
+}
+
+.pulldownContainer select::-webkit-scrollbar {
+  background-color: black;
+  .selectorContainer label {
+    color: white;
+  }
+}
+.pulldownContainer select::-webkit-scrollbar-thumb {
+  background-color: #feffff;
+  border: 1px solid rgb(193, 193, 193);
+}

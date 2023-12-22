@@ -1,16 +1,26 @@
 import { useContext } from "react";
 import styles from "./PageNav.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { StateContext } from "../App";
 function PageNav() {
   const [state, dispatch] = useContext(StateContext);
   const { position, location, mapStyle } = state;
+  const url = useLocation();
 
   console.log(state);
 
+  function helpFunction() {
+    console.log(dispatch);
+    dispatch({ type: "switchModal", payload: url.pathname || "/" });
+    console.log(url);
+  }
+
   return (
     <nav className={styles.navContainer}>
+      <button className={styles.helpButton} onClick={helpFunction}>
+        ?
+      </button>
       <h1>
         <NavLink to="/">&#9886; Forbrukerguide &#9887;</NavLink>
       </h1>
@@ -40,7 +50,10 @@ function PageNav() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/nummersoek">Nummersøk</NavLink>
+          <NavLink to="/okonomi">Økonomi</NavLink>
+        </li>
+        <li>
+          <NavLink to="/reiseplanlegger">Reiseplanlegger</NavLink>
         </li>
         <li>
           <NavLink to="/flytider">Flytider</NavLink>

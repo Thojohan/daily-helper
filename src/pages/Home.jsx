@@ -1,6 +1,6 @@
 import styles from "./Home.module.css";
 import PageNav from "../components/PageNav";
-import ShopMap from "../components/ShopMap";
+import Map from "../components/Map";
 import Selector from "../components/Selector";
 import { mapOptions } from "../utility/mapOptions";
 // const mapOptions2 = [
@@ -79,7 +79,7 @@ function Home({ state, dispatch }) {
             location?.countryName
           } - Nøyakighet: ${(Number(accuracy) / 1000).toFixed(2)} km`}</p>
           <div className={styles.mapContainer}>
-            <ShopMap
+            <Map
               myMarkers={myMarkers}
               lat={latitude}
               lng={longitude}

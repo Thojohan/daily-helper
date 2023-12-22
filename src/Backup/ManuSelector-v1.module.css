@@ -25,12 +25,3 @@ select::-webkit-scrollbar-thumb {
   background-color: #feffff;
   border: 1px solid rgb(193, 193, 193);
 }
-
-.selectContainer button {
-  cursor: pointer;
-}
-
-.selectContainer select:hover,
-button:hover {
-  transform: scale(1.05);
-}

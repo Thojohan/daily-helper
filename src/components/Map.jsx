@@ -1,4 +1,4 @@
-import styles from "./ShopMap.module.css";
+import styles from "./Map.module.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 import ChangePosition from "./ChangePosition";
@@ -12,14 +12,7 @@ function MapPlaceholder() {
     </p>
   );
 }
-function ShopMap({
-  myMarkers,
-  lat,
-  lng,
-  rangeValue,
-  dispatch = false,
-  mapStyle,
-}) {
+function Map({ myMarkers, lat, lng, rangeValue, dispatch = false, mapStyle }) {
   if (!lat) return null;
   console.log(myMarkers);
   return (
@@ -61,4 +54,4 @@ function ShopMap({
   );
 }
 
-export default ShopMap;
+export default Map;
