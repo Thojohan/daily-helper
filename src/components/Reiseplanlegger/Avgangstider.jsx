@@ -20,8 +20,8 @@ function Avgangstider({ info }) {
         {transportIcon(info.serviceJourney.journeyPattern.line.transportMode)}
       </span>
       <span className={styles.description}>{lineName}</span>
-      <span>{getTime(orgDepTime)}</span>
-      <span>{getTime(newDepTime)}</span>
+      <span> Planlagt: {getTime(orgDepTime)}</span>
+      <span>Ny tid: {getTime(newDepTime)}</span>
     </p>
   );
 }
