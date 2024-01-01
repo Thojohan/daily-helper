@@ -83,8 +83,6 @@ function findCode(code, isDay) {
     el.weatherCode.some((e) => e === code)
   );
 
-  console.log(code, isDay);
-  console.log(weatherElement);
   if (!weatherElement) return;
 
   return `./${
@@ -131,9 +129,6 @@ function WeatherNow({ weather }) {
     time.getMinutes()
   ).padStart(2, "0")}`;
 
-  console.log(weather.is_day, weather.weather_code);
-
-  console.log(weather);
   return (
     <p className={styles.tempStatus}>
       <span>

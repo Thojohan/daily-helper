@@ -21,7 +21,6 @@ function Matpriser({ mapStyle }) {
   const [myMarkers, setMyMarkers] = useState([]);
   const [rangeValue, setRangeValue] = useState(5);
   const [selectedShops, setSelectedShops] = useState([]);
-  console.log(mapStyle);
 
   const [searchParams] = useSearchParams();
   const latitude = searchParams.get("lat");
@@ -36,8 +35,7 @@ function Matpriser({ mapStyle }) {
       url: searchParams.get("mapUrl"),
     },
   ];
-  console.log(map);
-  console.log(selectedShops);
+
   const home = {
     position: [latitude, longitude],
     text: "You are here",
@@ -45,7 +43,6 @@ function Matpriser({ mapStyle }) {
     id: "Your position",
     size: [45, 50],
   };
-  console.log(matPriser);
 
   useEffect(
     function () {
@@ -60,7 +57,6 @@ function Matpriser({ mapStyle }) {
             ...acc,
             // home,
             {
-              iconUrl: el.logo,
               position: [el.position.lat, el.position.lng],
               text: `${el.name}
               ${el.address}
@@ -77,8 +73,6 @@ function Matpriser({ mapStyle }) {
     },
     [matPriser, rangeValue]
   );
-
-  console.log(myMarkers.length);
 
   return (
     <div className={styles.pageContainer}>
@@ -106,7 +100,7 @@ function Matpriser({ mapStyle }) {
           />
         </div>
       </div>
-      {myMarkers.length > 2 && <Prices selectedShops={selectedShops} />}
+      {myMarkers.length > 1 && <Prices selectedShops={selectedShops} />}
     </div>
   );
 }

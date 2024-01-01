@@ -10,13 +10,11 @@ function statusCode(code) {
 }
 
 function airportString(list, compareFirst, compareSecond) {
-  console.log(compareFirst, compareSecond);
   const formated = list.reduce((acc, el, i) => {
-    console.log(el);
     const name = [...compareFirst, ...compareSecond].find(
       (airport) => airport[0] === el
     );
-    console.log(name);
+
     return `${acc}${i > 0 ? ", " : ""}${name[1] || ""}`;
   }, "");
 
@@ -47,7 +45,7 @@ function FlightLine({ flightData, index, flyplasser, allAirports }) {
       className={styles.line}
       style={{
         backgroundColor: `${
-          (index / 2) % 1 ? "rgba(0, 0, 0, 0.3)" : "rgba(100, 100, 100, 0.3)"
+          (index / 2) % 1 ? "rgba(30, 30, 30, 0.7)" : "rgba(80, 80, 80, 0.7)"
         }`,
       }}
     >

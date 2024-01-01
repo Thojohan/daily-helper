@@ -29,8 +29,7 @@ function Valuta({ newTime, oldTime }) {
     }
     fetchValuta();
   }, []);
-  console.log(valutaKurs);
-  console.log(isLoading);
+
   const valutaer = valutaKurs.data
     ? valutaKurs.data.structure.dimensions.series.at(1).values
     : [];

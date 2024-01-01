@@ -13,11 +13,10 @@ function MenuSelector({ array, selected, setSelected, placeholder }) {
 
   function handleClickOutside(e) {
     const classList = e.target.closest("div").classList.value;
-    console.log(classList.includes("wrapper"));
     if (classList.includes("wrapper")) return;
     setExpand(false);
     const el = document.getElementById("wrap");
-    console.log(el);
+
     el.scrollTop = 0;
   }
   useEffect(function () {
@@ -27,9 +26,6 @@ function MenuSelector({ array, selected, setSelected, placeholder }) {
     };
   }, []);
 
-  function clicker(e) {
-    console.log(e.target);
-  }
   return (
     <div
       className={styles.wrapper}

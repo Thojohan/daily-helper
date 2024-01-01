@@ -89,7 +89,7 @@ function Flytider() {
           el.attributes.code,
           el.attributes.name,
         ]);
-        console.log(allPorts);
+
         setAllAirports(allPorts);
       } catch (e) {
         setError(e);
@@ -100,7 +100,6 @@ function Flytider() {
     getAllAirports();
   }, []);
 
-  console.log(allAirports);
   return (
     <div className={styles.pageContainer}>
       <PageNav />

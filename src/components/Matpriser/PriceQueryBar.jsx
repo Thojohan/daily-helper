@@ -7,17 +7,18 @@ function PriceQueryBar({
   setTickedShops,
   sortBy,
   setSortBy,
+  setIsLoading,
+  setError,
 }) {
   const listItems = useRef("");
   const text = useRef("");
   const unique = useRef("");
   const maxSum = useRef("");
-  console.log(unique.current.checked);
-  console.log(sortBy);
 
   function updateSearch() {
     if (!text.current.value) return;
     async function getPrices() {
+      setIsLoading(true);
       try {
         const data = await fetch(
           `https://kassal.app/api/v1/products?search=${
@@ -31,12 +32,13 @@ function PriceQueryBar({
             },
           }
         );
-
+        if (!data.ok) throw new Error("Couldn't fetch data");
         const json = await data.json();
         setSearchRes(json);
-        console.log(json);
       } catch (err) {
-        console.log(err);
+        setError(err);
+      } finally {
+        setIsLoading(false);
       }
     }
     getPrices();

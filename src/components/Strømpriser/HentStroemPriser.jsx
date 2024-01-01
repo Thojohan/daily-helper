@@ -26,8 +26,6 @@ function HentStroemPriser() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(priser);
-
   const time = priser.map((pris) => {
     const time = new Date(pris.time_start);
     return `${String(time.getHours()).padStart(2, 0)}:00`;
@@ -41,7 +39,6 @@ function HentStroemPriser() {
       setIsLoading(true);
       async function finnStroem() {
         try {
-          console.log(area.at(0), year, month, date);
           const data = await fetch(
             `https://www.hvakosterstrommen.no/api/v1/prices/${year}/${month}-${date}_${area.at(
               1

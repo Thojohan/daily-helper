@@ -25,8 +25,6 @@ function ProductLine({ productInfo, active }) {
     },
   ];
 
-  console.log(date);
-  console.log(productInfo);
   return (
     <>
       <div className={styles.imgContainer}>

@@ -15,9 +15,6 @@ function BNP() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(year);
-  console.log(timeArray);
-
   useEffect(function () {
     async function fetchBNP() {
       setError(false);
@@ -39,7 +36,6 @@ function BNP() {
         const jsonCountryData = await countryDataRaw.json();
         setCountries(jsonCountries);
         setCountryData(jsonCountryData);
-        console.log(jsonCountries, jsonCountryData);
       } catch (er) {
         setError(er);
       } finally {
@@ -63,16 +59,13 @@ function BNP() {
       }, [])
     : [];
   const values = countryData.values ? countryData.values.NGDP_RPCH : [];
-  console.log(countryData);
-  console.log(selectorChoice);
 
   const chartDataArray = selected.map((element, i) => {
     const [name] = selectorChoice.filter((el) => el[0] === element);
-    console.log(Object(countryData.values.NGDP_RPCH[element]));
+
     const mapped = timeArray.map(
       (el) => Object(countryData.values.NGDP_RPCH[element])[el]
     );
-    console.log(mapped);
 
     return {
       label: [`${name[1] || name[0]}`],
@@ -83,12 +76,14 @@ function BNP() {
       fill: false,
     };
   });
-  console.log(chartDataArray);
-  console.log(selected);
+
   return (
     <>
       <div className={styles.bnpContainer}>
-        <h2>BNP-utvikling, ulike land</h2>
+        <h2>BNP-utvikling</h2>
+        <h3>
+          Ulike nasjoner, siden 1980 til nå, og estimert fem år i fremtiden
+        </h3>
         <div className={styles.elementContainer}>
           {error && <ErrorMessage error={error} />}
           {isLoading && <Loading />}

@@ -1,9 +1,3 @@
-.resultContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(100, 99, 99, 0.6);
-}
-
 .lineContainer {
   color: white;
   display: flex;

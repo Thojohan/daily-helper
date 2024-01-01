@@ -138,12 +138,17 @@ const okonomi = (
 const reiseplanlegger = (
   <>
     <h2>Reiseplanlegger</h2>
-    <p>Ut på tur aldri sur</p>
+    <p>
+      Henter data om ulike stasjoner/stopp fra Entur sitt API og plasserer de på
+      kartet. Trykk på stoppet for å få opp avgangstider (opprinnelig og
+      oppdaterte), API-kall gjøres da dynamisk via en GraphiQL-spørring.
+    </p>
+    <br />
+    <p>Ytterligere funksjonalitet vil kommer her etterhvert.</p>
   </>
 );
 
 function InsertHelpText({ selected }) {
-  console.log(selected);
   return (
     <div className={styles.helpText}>
       {selected === "/" && home}

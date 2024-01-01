@@ -23,13 +23,11 @@ function HentMatPriser({
         (el) => el !== target.closest("li").dataset.group
       );
       setSelectedShops(newArr);
-      console.log(newArr);
     } else {
       const newArr = [
         ...new Set([...selected, target.closest("li").dataset.group]),
       ];
       setSelectedShops(newArr);
-      console.log(newArr);
     }
   }
 
@@ -47,12 +45,11 @@ function HentMatPriser({
               },
             }
           );
-          console.log(data);
+
           if (!data.ok) throw new Error("Kunne ikke hente liste over butikker");
           const dataJSON = await data.json();
           setMatPriser(dataJSON);
         } catch (err) {
-          console.log(err);
           setError(err);
         } finally {
           setIsLoading(false);

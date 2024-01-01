@@ -7,14 +7,21 @@ import Position from "./Position";
 function MapPlaceholder() {
   return (
     <p>
-      Kart over butikker.{" "}
-      <noscript>JavaScript må være aktivert for å vise dette.</noscript>
+      Kart. <noscript>JavaScript må være aktivert for å vise dette.</noscript>
     </p>
   );
 }
-function Map({ myMarkers, lat, lng, rangeValue, dispatch = false, mapStyle }) {
+function Map({
+  myMarkers,
+  lat,
+  lng,
+  rangeValue,
+  dispatch = false,
+  mapStyle,
+  clickHandler = null,
+}) {
   if (!lat) return null;
-  console.log(myMarkers);
+
   return (
     <MapContainer
       className={styles.map}
@@ -44,6 +51,8 @@ function Map({ myMarkers, lat, lng, rangeValue, dispatch = false, mapStyle }) {
               iconSize: el.size,
             })
           }
+          uniqueID={i}
+          eventHandlers={clickHandler}
         >
           <Popup className={styles.popup}>{el.text}</Popup>
         </Marker>

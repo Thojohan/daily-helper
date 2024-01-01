@@ -1,0 +1,11 @@
+.avgangsItem {
+  font-size: 20px;
+  display: flex;
+  font-family: inherit;
+  width: 70%;
+  justify-content: space-around;
+}
+
+.description {
+  width: 50%;
+}

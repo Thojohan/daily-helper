@@ -36,6 +36,41 @@ function LineChart({
             },
 
             plugins: {
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    let label = context.dataset.label || "";
+
+                    if (label) {
+                      label += ": ";
+                    }
+                    if (context.parsed.y !== null && unit === "kr") {
+                      label += new Intl.NumberFormat("no-NO", {
+                        style: "currency",
+                        currency: "NOK",
+                      }).format(context.parsed.y);
+                    }
+                    if (
+                      context.parsed.y !== null &&
+                      context.dataset.label === "Nedbør"
+                    ) {
+                      label += context.parsed.y + "mm";
+                    }
+                    if (
+                      context.parsed.y !== null &&
+                      unit === "°C" &&
+                      context.dataset.label !== "Nedbør"
+                    ) {
+                      label += context.parsed.y + "°C";
+                    }
+                    if (context.parsed.y !== null && unit === "%") {
+                      label += context.parsed.y + "%";
+                    }
+
+                    return label;
+                  },
+                },
+              },
               legend: {
                 display: label,
 

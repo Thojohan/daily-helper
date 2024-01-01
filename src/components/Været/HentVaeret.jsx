@@ -19,9 +19,9 @@ function HentVaeret({ lat, lng, location }) {
   const [weather, setWeather] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
-  console.log(current);
+
   const heading = `Været for ${location}`;
-  console.log(weather);
+
   const time =
     weather?.hourly?.time
       ?.map((el) => {
@@ -36,27 +36,15 @@ function HentVaeret({ lat, lng, location }) {
     [];
 
   const temp = weather?.hourly?.temperature_2m?.map((el) => el) || [];
-
   const appTemp = weather?.hourly?.apparent_temperature?.map((el) => el) || [];
-
   const precipitation = weather?.hourly?.precipitation?.map((el) => el) || [];
-
   const soilTemp = weather?.hourly?.soil_temperature_0cm?.map((el) => el) || [];
-
   const cloudCover = weather?.hourly?.cloud_cover?.map((el) => el) || [];
-
   const isDay = weather?.hourly?.is_day?.map((el) => el) || [];
-
   const weatherCode = weather?.hourly?.weather_code?.map((el) => el) || [];
-  console.log(weather);
-
   const windSpeed = weather?.hourly?.wind_speed_10m?.map((el) => el) || [];
-  console.log(weather);
-
   const windDirection =
     weather?.hourly?.wind_direction_10m?.map((el) => el) || [];
-  console.log(weather);
-
   const forecastHours = [
     6 + hoursLeftOfDay,
     14 + hoursLeftOfDay,
@@ -74,8 +62,6 @@ function HentVaeret({ lat, lng, location }) {
     110 + hoursLeftOfDay,
     116 + hoursLeftOfDay,
   ];
-
-  console.log(forecastHours);
 
   const forecastStringData = timeISO
     .reduce((acc, el, i) => {
@@ -95,8 +81,6 @@ function HentVaeret({ lat, lng, location }) {
       ];
     }, [])
     .filter((_el, i) => forecastHours.some((el) => el === i));
-  console.log(weather);
-  console.log(forecastStringData);
 
   useEffect(function () {
     async function getWeather() {

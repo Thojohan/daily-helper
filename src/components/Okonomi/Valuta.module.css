@@ -22,6 +22,14 @@
   margin-bottom: 25px;
   justify-content: center;
 }
+
+.contentContainer h3 {
+  width: 100%;
+  font-size: 30px;
+  height: 50px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
 .chart {
   width: 280px;
 }

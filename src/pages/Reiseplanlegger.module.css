@@ -11,3 +11,12 @@
   color: white;
   font-size: 25px;
 }
+
+.mapContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 50px;
+  margin-left: auto;
+  width: 800px;
+  height: 500px;
+}

@@ -5,13 +5,11 @@ import InsertHelpText from "../components/Help/InsertHelpText";
 function HelpModal({ defaultText, dispatch }) {
   const [selected, setSelected] = useState(defaultText);
   function closeModal(e) {
-    console.log(e.target.className);
     if (!e.target.className.includes("modalContainer")) return;
     dispatch({ type: "switchModal", payLoad: defaultText });
   }
   const text = defaultText;
 
-  console.log(defaultText);
   return (
     <div className={styles.modalContainer} onClick={closeModal}>
       <div className={styles.textContainer}>

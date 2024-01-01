@@ -59,10 +59,9 @@ function Results({ searchRes, selectedShops, tickedShops, sortBy }) {
   const sorted = sortRes(searchRes.data, sortBy).filter((el) =>
     tickedShops ? selectedShops.find((e) => e === el.store.code) : el
   );
-  console.log(isActive);
 
   return (
-    <ul className={styles.resultContainer}>
+    <>
       {sorted.map((el, i) => (
         <li
           key={i}
@@ -74,7 +73,7 @@ function Results({ searchRes, selectedShops, tickedShops, sortBy }) {
           <ProductLine productInfo={el} active={isActive === i} />
         </li>
       ))}
-    </ul>
+    </>
   );
 }
 

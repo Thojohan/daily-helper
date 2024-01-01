@@ -67,16 +67,6 @@ function reducer(state, { type, payload }) {
 export const StateContext = React.createContext();
 
 function App() {
-  // const [position, setPosition] = useState({});
-  // const [location, setLocation] = useState(null);
-  // const [mapStyle, setMapStyle] = useState([
-  //   "Default Leaflet Style",
-  //   {
-  //     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  //     attribution:
-  //       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  //   },
-  // ]);
   const [state, dispatch] = useReducer(reducer, initialState);
   const { latitude, longitude } = state.position;
   const { location, mapStyle } = state;
@@ -88,8 +78,6 @@ function App() {
     dispatch({ type: "setDefaultPosition" });
   }
 
-  console.log(state.showModal, state.modalPath);
-
   useEffect(function () {
     const nav = navigator.geolocation.getCurrentPosition(
       (object) => dispatch({ type: "changePosition", payload: object.coords }),
@@ -97,8 +85,6 @@ function App() {
       options
     );
   }, []);
-
-  console.log(state.position);
 
   useEffect(
     function () {

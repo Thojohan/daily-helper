@@ -8,12 +8,8 @@ function PageNav() {
   const { position, location, mapStyle } = state;
   const url = useLocation();
 
-  console.log(state);
-
   function helpFunction() {
-    console.log(dispatch);
     dispatch({ type: "switchModal", payload: url.pathname || "/" });
-    console.log(url);
   }
 
   return (
@@ -53,7 +49,17 @@ function PageNav() {
           <NavLink to="/okonomi">Økonomi</NavLink>
         </li>
         <li>
-          <NavLink to="/reiseplanlegger">Reiseplanlegger</NavLink>
+          <NavLink
+            to={`/reiseplanlegger?lat=${position.latitude}&lng=${
+              position.longitude
+            }&map=${mapStyle.at(0)}&mapAt=${mapStyle
+              .at(1)
+              .attribution.replaceAll("&copy", "$$$$$")}&mapUrl=${
+              mapStyle.at(1).url
+            }`}
+          >
+            Reiseplanlegger
+          </NavLink>
         </li>
         <li>
           <NavLink to="/flytider">Flytider</NavLink>
