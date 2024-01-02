@@ -10,7 +10,7 @@
   display: flex;
   justify-content: space-around;
   vertical-align: middle;
-  width: calc(100%-10px);
+  width: calc(100% - 16px);
   flex-wrap: wrap;
 }
 

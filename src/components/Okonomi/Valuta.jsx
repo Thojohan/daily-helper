@@ -9,6 +9,8 @@ function Valuta({ newTime, oldTime }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  console.log(oldTime, newTime);
+
   useEffect(function () {
     async function fetchValuta() {
       setError(false);
@@ -17,6 +19,7 @@ function Valuta({ newTime, oldTime }) {
         const data = await fetch(
           `https://data.norges-bank.no/api/data/EXR/M..NOK.SP?startPeriod=${oldTime}&endPeriod=${newTime}&format=sdmx-json&locale=no`
         );
+        console.log(data);
 
         if (!data.ok) throw new Error("Failed to fetch data ");
         const jsonData = await data.json();

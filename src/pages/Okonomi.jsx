@@ -4,12 +4,13 @@ import Valuta from "../components/Okonomi/Valuta";
 import BNP from "../components/Okonomi/BNP";
 
 const time = new Date();
-const newTime = `${time.getFullYear()}-${
+const newTime = `${time.getFullYear()}-${String(time.getMonth() + 1).padStart(
+  2,
+  "0"
+)}-${String(time.getDate()).padStart(2, "0")}`;
+const oldTime = `${time.getFullYear() - 5}-${String(
   time.getMonth() + 1
-}-${time.getDate()}`;
-const oldTime = `${time.getFullYear() - 5}-${
-  time.getMonth() + 1
-}-${time.getDate()}`;
+).padStart(2, "0")}-${String(time.getDate()).padStart(2, "0")}`;
 
 function Okonomi() {
   return (
