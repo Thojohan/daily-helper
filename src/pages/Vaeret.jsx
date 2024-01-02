@@ -9,7 +9,6 @@ function Vaeret() {
   const lng = searchParams.get("lng");
   const location = searchParams.get("loc");
 
-  console.log(lat, lng);
   return (
     <div className={styles.pageContainer}>
       <PageNav />
