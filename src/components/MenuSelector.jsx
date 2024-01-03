@@ -35,11 +35,7 @@ function MenuSelector({ array, selected, setSelected, placeholder }) {
         overflowY: `${expand ? "auto" : "hidden"}`,
       }}
     >
-      <ul
-        className={styles.selectContainer}
-        onClick={(e) => clicker(e)}
-        placeholder={`${placeholder}`}
-      >
+      <ul className={styles.selectContainer} placeholder={`${placeholder}`}>
         <li className={styles.firstItem} onClick={() => setExpand(!expand)}>
           <span>{placeholder}</span>
           <span style={{ width: "10%", lineHeight: "100%" }}>
