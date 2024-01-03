@@ -42,7 +42,7 @@ function queryConstructor(stopID) {
   return `{stopPlace(id: "${stopID}") {
       id
       name
-      estimatedCalls(timeRange: 72100, numberOfDepartures: 30) {     
+      estimatedCalls(timeRange: 72100, numberOfDepartures: 20) {     
         realtime
         aimedArrivalTime
         aimedDepartureTime
