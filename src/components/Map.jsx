@@ -16,9 +16,9 @@ function Map({
   lat,
   lng,
   rangeValue,
-  dispatch = false,
+  mapCallBack = false,
   mapStyle,
-  clickHandler = null,
+  clickMarkerHandler = null,
 }) {
   if (!lat) return null;
 
@@ -26,7 +26,7 @@ function Map({
     <MapContainer
       className={styles.map}
       center={[lat, lng]}
-      zoom={12}
+      zoom={13}
       maxZoom={18}
       minZoom={2}
       scrollWheelZoom={false}
@@ -52,13 +52,16 @@ function Map({
             })
           }
           uniqueID={i}
-          eventHandlers={clickHandler}
+          opacity={0.8}
+          eventHandlers={clickMarkerHandler}
         >
           <Popup className={styles.popup}>{el.text}</Popup>
         </Marker>
       ))}{" "}
-      <ChangePosition rangeValue={rangeValue} position={[lat, lng]} />
-      {dispatch && <Position dispatch={dispatch} />}
+      {!mapCallBack && (
+        <ChangePosition rangeValue={rangeValue} position={[lat, lng]} />
+      )}
+      {mapCallBack && <Position mapCallBack={mapCallBack} />}
     </MapContainer>
   );
 }

@@ -8,13 +8,16 @@ import ErrorMessage from "../components/ErrorMessage";
 import { logoFinder } from "../utility/logoFinder";
 import { useMemo } from "react";
 import Rutetider from "../components/Reiseplanlegger/Rutetider";
+import Reiseruter from "../components/Reiseplanlegger/Reiseruter";
+const rangeValue = 5;
 
 function Reiseplanlegger() {
   const [travel, setTravel] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [searchParams] = useSearchParams();
-  const [activeStop, setActiveStop] = useState(null);
+  const [activeStop, setActiveStop] = useState([]);
+  const [goTo, setGoTo] = useState({});
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
   const home = {
@@ -24,6 +27,7 @@ function Reiseplanlegger() {
     id: "Your position",
     size: [45, 50],
   };
+
   const map = [
     searchParams.get("map"),
     {
@@ -35,16 +39,27 @@ function Reiseplanlegger() {
     },
   ];
 
-  const rangeValue = 5;
+  function mapCallBack(e) {
+    setGoTo({
+      position: [e.latlng.lat, e.latlng.lng],
+      text: "You want to travel here",
+      logo: "target.png",
+      id: "Your target",
+      size: [38, 56],
+    });
+  }
 
-  const clickHandler = useMemo(
+  const clickMarkerHandler = useMemo(
     (e) => ({
       click(e) {
         if (e.target.options.uniqueID === 0) return;
 
         const arr = createMapArray(travel);
 
-        const objID = arr.at(e.target.options.uniqueID).id;
+        const objID = [
+          arr.at(e.target.options.uniqueID).id,
+          arr.at(e.target.options.uniqueID).text.split(/\n/).at(0),
+        ];
 
         setActiveStop(objID);
       },
@@ -68,7 +83,7 @@ function Reiseplanlegger() {
         ${el.properties.distance}km unna`,
             logo: logoFinder(el),
             id: el.properties.id,
-            size: [35, 35],
+            size: el.properties.id === activeStop?.at(0) ? [50, 50] : [35, 35],
           },
         ];
       },
@@ -110,19 +125,38 @@ function Reiseplanlegger() {
   return (
     <div className={styles.pageContainer}>
       <PageNav />
-      <div className={styles.mapContainer}>
-        {error && <ErrorMessage err={error} />}
-        {isLoading && <Loading />}
-        <Map
-          myMarkers={createMapArray(travel)}
-          lat={lat}
-          lng={lng}
-          rangeValue={rangeValue}
-          mapStyle={map || mapStyle}
-          clickHandler={clickHandler}
-        />
+      <div className={styles.upperContainer}>
+        <div className={styles.directions}>
+          <h2>1. Velg holdeplass for å se neste avganger.</h2>
+          <h2>
+            2. Klikk et punkt på kartet for å se ruteforslag fra <br /> valgt
+            holdeplass til dette punktet. Forslagene er sortert etter <br />
+            estimert reisetid.
+          </h2>
+        </div>
+        <div className={styles.mapContainer}>
+          {error && <ErrorMessage error={error} />}
+          {isLoading && <Loading />}
+          <Map
+            myMarkers={[
+              ...createMapArray(travel),
+              ...(goTo.position ? [goTo] : []),
+            ]}
+            lat={lat}
+            lng={lng}
+            rangeValue={rangeValue}
+            mapStyle={map || mapStyle}
+            clickMarkerHandler={clickMarkerHandler}
+            mapCallBack={mapCallBack}
+          />
+        </div>
       </div>
-      {activeStop && <Rutetider activeStop={activeStop} />}
+      <div className={styles.results}>
+        {activeStop.length > 0 && <Rutetider activeStop={activeStop[0]} />}
+        {activeStop.length > 0 && goTo.position && (
+          <Reiseruter activeStop={activeStop} goTo={goTo} />
+        )}
+      </div>
     </div>
   );
 }

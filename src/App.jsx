@@ -78,6 +78,8 @@ function App() {
     dispatch({ type: "setDefaultPosition" });
   }
 
+  console.log(import.meta.env.VITE_SOME_KEY);
+
   useEffect(function () {
     const nav = navigator.geolocation.getCurrentPosition(
       (object) => dispatch({ type: "changePosition", payload: object.coords }),

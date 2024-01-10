@@ -91,7 +91,6 @@ function Rutetider({ activeStop }) {
             {
               method: "POST",
               headers: {
-                // Replace this with your own client name:
                 "ET-Client-Name": "TJ-learningReact",
                 "Content-Type": "application/json",
               },

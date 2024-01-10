@@ -2,7 +2,7 @@ import styles from "./Avgangstider.module.css";
 import { getTime } from "../../utility/getTime";
 
 function transportIcon(mode) {
-  if (mode === "bus") return "🚌";
+  if (mode === "bus" || mode === "coach") return "🚌";
   if (mode === "rail") return "🚅";
   if (mode === "tram") return "🚊";
   if (mode === "metro") return "🚇";
@@ -16,12 +16,16 @@ function Avgangstider({ info }) {
 
   return (
     <p className={styles.avgangsItem}>
-      <span>
+      <span style={{ width: "5%" }}>
         {transportIcon(info.serviceJourney.journeyPattern.line.transportMode)}
       </span>
-      <span className={styles.description}>{lineName}</span>
-      <span> Planlagt: {getTime(orgDepTime)}</span>
-      <span>Ny tid: {getTime(newDepTime)}</span>
+      <span style={{ width: "40%" }}>{lineName}</span>
+      <span> Avgangstid: {getTime(orgDepTime)}</span>
+      {getTime(orgDepTime) !== getTime(newDepTime) ? (
+        <span>Ny tid: {getTime(newDepTime)}</span>
+      ) : (
+        <span>{""}</span>
+      )}
     </p>
   );
 }

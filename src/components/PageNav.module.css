@@ -37,12 +37,13 @@ li a:global {
 }
 
 h1 a:global {
+  font-family: "Kaushan Script", serif;
   color: white;
 }
 
 li a:global(.active) {
   color: rgb(0, 0, 0);
-  text-shadow: 1px 1px 7px rgb(255, 255, 252);
+  text-shadow: 1px 1px 5px rgb(255, 255, 255), 2px 2px 15px rgb(194, 185, 185);
 }
 
 @media screen and (max-width: 600px) {

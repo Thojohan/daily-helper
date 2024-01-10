@@ -19,6 +19,13 @@ function MenuSelector({ array, selected, setSelected, placeholder }) {
 
     el.scrollTop = 0;
   }
+
+  function firstElementClick(e) {
+    if (e.target.type !== "submit") setExpand(!expand);
+    if (e.target.type === "submit")
+      setSelected(selected.filter((_, i) => i !== Number(e.target.value)));
+  }
+
   useEffect(function () {
     document.addEventListener("click", handleClickOutside, true);
     return () => {
@@ -31,19 +38,47 @@ function MenuSelector({ array, selected, setSelected, placeholder }) {
       className={styles.wrapper}
       id="wrap"
       style={{
-        height: `${expand ? "500px" : ""}`,
-        overflowY: `${expand ? "auto" : "hidden"}`,
+        height: `${expand ? "500px" : "auto"}`,
       }}
     >
-      <ul className={styles.selectContainer} placeholder={`${placeholder}`}>
-        <li className={styles.firstItem} onClick={() => setExpand(!expand)}>
-          <span>{placeholder}</span>
-          <span style={{ width: "10%", lineHeight: "100%" }}>
+      <ul
+        className={styles.selectContainer}
+        placeholder={`${placeholder}`}
+        style={{
+          height: `${expand ? "500px" : ""}`,
+          overflowY: `${expand ? "auto" : "hidden"}`,
+        }}
+      >
+        <p className={styles.firstItem} onClick={firstElementClick}>
+          <p style={{ width: "80%" }}>
+            <p>
+              {placeholder}
+              <br />
+              {selected.map((el, i) => (
+                <button value={i} key={i}>
+                  ❌{el}{" "}
+                </button>
+              ))}
+            </p>
+          </p>
+          <p
+            style={{
+              verticalAlign: "middle",
+              width: "20%",
+              lineHeight: "100%",
+            }}
+          >
             {expand ? "⯅" : "⯆"}
-          </span>
-        </li>
+          </p>
+        </p>
         {array.map(([firstparam, secondparam], i) => (
-          <li key={i}>
+          <li
+            key={i}
+            style={{
+              height: `${expand ? "" : "0px"}`,
+              visibility: `${expand ? "" : "hidden"}`,
+            }}
+          >
             <label htmlFor={firstparam}>
               {firstparam} {secondparam ? `- ${secondparam}` : ""}
             </label>

@@ -12,6 +12,17 @@
   font-size: 18px;
 }
 
+.upperContainer {
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.directions {
+  margin-top: 50px;
+  width: 50%;
+}
+
 .mapContainer {
   position: relative;
   cursor: pointer;
@@ -19,4 +30,10 @@
   margin-left: auto;
   width: 800px;
   height: 500px;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }

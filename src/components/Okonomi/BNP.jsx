@@ -5,7 +5,6 @@ import Loading from "../Loading";
 import ErrorMessage from "../ErrorMessage";
 import MenuSelector from "../MenuSelector";
 
-const year = new Date().getFullYear();
 const timeArray = [...new Array(49)].map((el, i) => 1980 + i);
 
 function BNP() {

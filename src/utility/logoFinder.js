@@ -40,6 +40,8 @@ export function logoFinder(array) {
     )
   )
     return "tbane-pink.png";
+  if (array.properties.category.some((el) => el === "railStation"))
+    return "tog-pink.png";
   if (
     array.properties.category.some((el) => el === "onstreetBus") ||
     array.properties.category.some((el) => el === "busStation")

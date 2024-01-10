@@ -1,9 +1,9 @@
 import { useMapEvents } from "react-leaflet";
 
-export default function changePos({ clickHandler }) {
+export default function changePos({ clickMarkerHandler }) {
   const map = useMapEvents({
     click: (e) => {
-      clickHandler(e);
+      clickMarkerHandler(e);
     },
   });
   return null;
