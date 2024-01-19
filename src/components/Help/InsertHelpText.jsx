@@ -9,7 +9,7 @@ const home = (
       (JavaScript) og CSS i Visual Studio Code i løpet av høsten 2023.
       Prosjektet er opprettet med Vite. Jeg har brukt flere forskjellige plugins
       og eksterne APIer, for eksempel Leaflet for kartet, OpenMeteo for været og
-      Kassal for matpriser.
+      Kassal for matpriser. Bilder er redigert av meg i GIMP.
     </p>
     <br />
     <p>
@@ -69,6 +69,15 @@ const matpriser = (
       søket er gjort da dette sorteres lokalt. Ved klikk på en matvare kan man
       få opp statistikk over pris på denne matvaren i en graf.
     </p>
+    <br />
+    <p>
+      Etter å ha testet denne API-en over litt tid så er det påfallende sjeldent
+      å finne priser fra Kiwi og Rema for eksempel, mens Meny og Coop ofte har
+      lagt inn priser. Litt usikker på hvilke Coop-butikker de baserer prisene
+      sine på, da Kassalapp kun oppgir COOP_NO og ikke hvilken Coop-kjede
+      prisene hentes fra. Siden så få kjeder legger inn prisene sine så har jeg
+      kodet visningen slik at Oda sine priser alltid vises.
+    </p>
   </>
 );
 const stroempriser = (
@@ -81,7 +90,10 @@ const stroempriser = (
       forbrukeren ikke belastes moms der.
     </p>
     <br />
-    <p>Prisene hentes fra Hvakosterstrommen.no (link nederst på siden)</p>
+    <p>
+      Prisene hentes fra Hvakosterstrommen.no (link via logo nederst på siden)
+      sitt API.
+    </p>
   </>
 );
 const flytider = (
@@ -108,9 +120,9 @@ const vaeret = (
       Værvarsel for ditt område. Henter området fra API-kallet når siden laster,
       eventuelt posisjon du har valgt på kartet. Gir deg været akkurat nå i
       øverste statuslinje, været 5 døgn fremover i et diagram med faktisk
-      temperatur (målt ved 2 meter høyde), hvilken temperatur det føles som,
-      bakketemperatur samt total nedbørsmengde. Til sist følger statuslinje for
-      de neste dagene kl 0600, 1400 og 2200.
+      temperatur (målt ved 2 meter høyde), opplevd temperatur og bakketemperatur
+      - alle som linjediagram, samt nedbørsmengde som stolpediagram. Til sist
+      følger statuslinje for de neste dagene kl 0600, 1400 og 2200.
     </p>
     <br />
     <p>
@@ -133,6 +145,11 @@ const okonomi = (
       farge-ikonet over grafen. Grafen genereres av samme JS Chart-modul som er
       brukt ellers på siden.
     </p>
+    <br />
+    <p>
+      Multiselect i BNP-menyen har jeg bygd fra grunnen, man kan da trykke bort
+      valg både med rullegardinmenyen oppe, og igjen.
+    </p>
   </>
 );
 const reiseplanlegger = (
@@ -141,10 +158,15 @@ const reiseplanlegger = (
     <p>
       Henter data om ulike stasjoner/stopp fra Entur sitt API og plasserer de på
       kartet. Trykk på stoppet for å få opp avgangstider (opprinnelig og
-      oppdaterte), API-kall gjøres da dynamisk via en GraphiQL-spørring.
+      oppdaterte), API-kall gjøres da dynamisk via en GraphQL-spørring.
     </p>
     <br />
-    <p>Ytterligere funksjonalitet vil kommer her etterhvert.</p>
+    <p>
+      Ved å trykke et annet sted på kartet når du har et aktivt stopp vil du få
+      opp reiseforslag mellom valgt stasjon/stopp og dette punket. Forslagene er
+      sortert etter tidsbruk, og du kan også se total gangavstand som inngår i
+      reiseforslaget. Også dette søkes dynamisk fra Entur sitt API med GraphQL.
+    </p>
   </>
 );
 

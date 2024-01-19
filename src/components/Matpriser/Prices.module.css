@@ -1,9 +1,0 @@
-.priceContainer {
-  display: flex;
-  flex-direction: column;
-}
-.resultContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(100, 99, 99, 0.6);
-}

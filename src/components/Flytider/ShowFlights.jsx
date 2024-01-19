@@ -1,4 +1,4 @@
-import FlightLine from "./FlightLine";
+import FlightLine from "./FlightLine/FlightLine";
 import { getTime } from "../../utility/getTime";
 
 function ShowFlights({ flightData, flyplasser, allAirports }) {

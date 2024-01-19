@@ -6,7 +6,6 @@ export function findBeaufort(knots) {
   if (knots >= 11 && knots < 17) return "laber bris";
   if (knots >= 17 && knots < 22) return "frisk bris";
   if (knots >= 22 && knots < 28) return "liten kuling";
-  if (knots >= 22 && knots < 28) return "liten kuling";
   if (knots >= 28 && knots < 34) return "stiv kuling";
   if (knots >= 34 && knots < 41) return "sterk kuling";
   if (knots >= 41 && knots < 48) return "liten storm";

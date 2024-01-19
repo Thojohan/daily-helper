@@ -1,8 +1,8 @@
 .helpText {
   font-family: "Roboto", sans-serif;
   margin: 10px;
-
   overflow-y: auto;
+  font-size: 20px;
 }
 
 .helpText p,
