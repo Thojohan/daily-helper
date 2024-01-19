@@ -1,0 +1,25 @@
+.routeContainer {
+  margin-top: 20px;
+  width: 1flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.infoContainer {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+}
+
+.descriptionContainer {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionContainer li {
+  margin-bottom: 8px;
+}

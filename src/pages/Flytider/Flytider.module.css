@@ -1,0 +1,40 @@
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/pexels-pixabay-47044.jpg");
+  background-size: cover;
+  overflow: scroll;
+  min-width: 350px;
+  min-height: 700px;
+  color: white;
+}
+
+.sectionContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.resultContainer {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+
+  width: calc(100vw - 450px);
+}
+
+@media screen and (max-width: 900px) {
+  .sectionContainer {
+    flex-direction: column;
+    font-size: 1em;
+    min-width: 350px;
+    width: 100%;
+  }
+  .resultContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    width: 100%;
+    margin-top: 20px;
+  }
+}

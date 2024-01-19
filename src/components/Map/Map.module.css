@@ -1,0 +1,11 @@
+.map {
+  height: 100%;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  z-index: 3;
+}
+
+.popup {
+  white-space: pre-line;
+}

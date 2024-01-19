@@ -1,0 +1,29 @@
+.lineContainer {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  width: calc(100% - 20px);
+  font-size: 0.75rem;
+  height: fit-content;
+  margin-top: 5px;
+  padding-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: background-color 0.5s ease;
+}
+
+.active {
+  background-color: rgb(5, 5, 5, 0.3);
+  min-height: 220px;
+}
+
+@media screen and (max-width: 600px) {
+  .lineContainer {
+    flex-direction: column;
+  }
+
+  .active {
+    padding-bottom: 100px;
+  }
+}

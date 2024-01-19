@@ -1,0 +1,56 @@
+.bnpContainer {
+  padding-left: 2%;
+  padding-top: 2%;
+  height: 80%;
+  min-height: 500px;
+  width: 97.5%;
+  background-color: rgba(94, 93, 93, 0.5);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.elementContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+.bnpContainer h2 {
+  width: 100%;
+  font-size: 35px;
+  height: fit-content;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.bnpContainer h3 {
+  width: 100%;
+  font-size: 25px;
+  height: fit-content;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.chart {
+  width: 67%;
+}
+.selectorContainer {
+  top: 0;
+  width: 23%;
+}
+
+@media screen and (max-width: 600px) {
+  .elementContainer {
+    flex-direction: column;
+  }
+  .selectorContainer {
+    top: 0;
+    width: 98%;
+  }
+  .chart {
+    width: 98%;
+  }
+}

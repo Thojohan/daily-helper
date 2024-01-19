@@ -1,0 +1,12 @@
+.avgangsItem {
+  display: flex;
+  font-family: inherit;
+  width: 97%;
+  justify-content: space-around;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.avgangsItem span {
+  width: 20%;
+}

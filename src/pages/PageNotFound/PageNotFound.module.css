@@ -1,0 +1,14 @@
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/pexels-mahdi-bafande-15886790.jpg");
+  background-size: cover;
+  resize: both;
+  overflow: scroll;
+  color: white;
+}
+
+.errorMessage {
+  margin-top: 100px;
+  font-size: 1.2rem;
+}

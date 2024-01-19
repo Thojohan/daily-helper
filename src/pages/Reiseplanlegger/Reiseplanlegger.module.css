@@ -1,0 +1,57 @@
+.pageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/src/assets/godebusser.jpg");
+  background-size: cover;
+  resize: both;
+  overflow: scroll;
+}
+
+.pageContainer p {
+  color: white;
+}
+
+.upperContainer {
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.directions {
+  margin-top: 50px;
+  width: 50%;
+  align-content: center;
+}
+
+.mapContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 50px;
+  margin-left: auto;
+  width: 50%;
+  height: 500px;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .upperContainer {
+    flex-direction: column;
+  }
+
+  .results {
+    flex-direction: column;
+    font-size: 0.8em;
+  }
+
+  .directions {
+    width: 100%;
+  }
+  .mapContainer {
+    width: 100%;
+    margin: 0;
+  }
+}

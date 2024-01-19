@@ -1,0 +1,17 @@
+.avgangsContainer {
+  width: 100%;
+  margin-top: 25px;
+  padding-top: 5px;
+  font-family: "Roboto", sans-serif;
+  background-color: rgba(100, 99, 99, 0.6);
+}
+
+.avgangsContainer ul,
+.avgangsContainer p {
+  font-family: inherit;
+}
+
+.avgangsContainer h2 {
+  color: white;
+  font-size: 30px;
+}
